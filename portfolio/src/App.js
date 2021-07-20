@@ -1,20 +1,26 @@
-import {BrowserRouter as  Router} from 'react-router-dom'
-import Slidebar from "./components/Navbar/navbar.js"
-import MenuHeader from "./components/Menu/menu.js"
-import HomepageLayout from "./components/homePage/index.js"
-// import Project from "./components/Project/projects"
+import { BrowserRouter as Router } from "react-router-dom";
+import About from "./components/About/about.js"
+import Home from "./components/Home/home.js";
+
+import Footer from "./components/Footer/footer.js";
+import { useState } from "react";
 
 function App() {
+  // const [activePage, setActivePage] = useState('Home')
   return (
-    <div>
+    <main>
+      <header>
+        {/* <Home/> */}
+        <About/>
+      </header>
+      <div>
 
-      <Router>
-        <HomepageLayout />
-        {/* <MenuHeader /> */}
-        {/* <Slidebar /> */}
-        {/* <Route path="/projects" component={Project} /> */}
-      </Router>
-    </div>
+
+      </div>
+      <footer>
+        {/* <Footer /> */}
+      </footer>
+    </main>
   );
 }
 
