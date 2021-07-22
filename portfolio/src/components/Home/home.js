@@ -44,19 +44,17 @@ const HomepageHeading = ({ mobile }) => (
         marginTop: mobile ? "1.5em" : "3em",
       }}
     />
-    <Header
-      as="h2"
-      content=""
-      inverted
+    <Button inverted color='red' 
+    size="huge"
+    inverted
       style={{
         fontSize: mobile ? "1.5em" : "1.7em",
         fontWeight: "normal",
         marginTop: mobile ? "0.5em" : "1.5em",
       }}
-    />
-    <Button inverted color='red' size="huge">
+    >
       Hi I'm Wael
-      <Icon name="right arrow" />
+      <Icon name="chevron right"/>
     </Button>
   </Container>
 );
@@ -141,7 +139,7 @@ class MobileContainer extends Component {
     const { sidebarOpened } = this.state;
 
     return (
-      <Media as={Sidebar.Pushable} at="mobile">
+      <Media as={Sidebar.Pushable} at="mobile" style="height:100vh">
         <Sidebar.Pushable>
           <Sidebar
             as={Menu}
@@ -150,6 +148,7 @@ class MobileContainer extends Component {
             onHide={this.handleSidebarHide}
             vertical
             visible={sidebarOpened}
+            
           >
             <Menu.Item as="a" active>
               Home
@@ -199,10 +198,7 @@ MobileContainer.propTypes = {
 };
 
 const ResponsiveContainer = ({ children }) => (
-  /* Heads up!
-   * For large applications it may not be best option to put all page into these containers at
-   * they will be rendered twice for SSR.
-   */
+ 
   <MediaContextProvider>
     <DesktopContainer>{children}</DesktopContainer>
     <MobileContainer>{children}</MobileContainer>
@@ -224,9 +220,9 @@ const Home = () => (
             <Grid.Column width={3}>
               <Header inverted as="h4" content="Contact" />
               <List link inverted>
-                <List.Item as="a">LinkedIn</List.Item>
-                <List.Item as="a">GitHub</List.Item>
-                <List.Item as="a">Email</List.Item>
+                <List.Item as="a"><Icon name='linkedin'/> LinkedIn</List.Item>
+                <List.Item as="a"><Icon name='github'/> GitHub</List.Item>
+                <List.Item as="a"><Icon name='mail'/> Email</List.Item>
               </List>
             </Grid.Column>
 
