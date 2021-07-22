@@ -11,15 +11,15 @@
 //       if (currentPage === 'Home') {
 //         return <Homepage/>;
 //       }
-//       if (currentPage === 'About') {
+//       if (currentPage === '/About') {
 //         return <About />;
 //       }
   
-//       if (currentPage === "Portfolio") {
+//       if (currentPage === "/Portfolio") {
 //         return <Portfolio />
 //       }
           
-//       if (currentPage === "Contact"){
+//       if (currentPage === "/Contact"){
 //       return <Contact />;}
 //     };
   
