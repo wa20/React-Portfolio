@@ -1,0 +1,32 @@
+.profileDP {
+    background-image: url("./assets/me-bws.jpg");
+    background-position: center;
+    background-size: cover;
+    /* margin-top: 5rem; */
+    box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.541);
+  }
+
+  @media (min-width: 768px){
+
+  .profileBox {
+      min-width: 450px;
+      min-height: 450px;
+  }
+}
+
+@media (max-width: 767px){
+
+    .profileBox {
+        min-width: 350px;
+        min-height: 350px;
+    }
+  }
+
+  .footer {
+    position: fixed;
+      margin-bottom: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      
+  }
