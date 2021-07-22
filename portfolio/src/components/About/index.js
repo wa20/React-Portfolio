@@ -18,7 +18,7 @@ import {
   Sidebar,
   Visibility,
 } from "semantic-ui-react";
-
+import './style.css'
 
 const avatar = require("./assets/me-bws.jpg").default;
 
@@ -62,12 +62,12 @@ class DesktopContainer extends Component {
               size="large"
             >
               <Container>
-                <Menu.Item as="a">Home</Menu.Item>
-                <Menu.Item as="a" active>
+                <Menu.Item href="/Home" as="a">Home</Menu.Item>
+                <Menu.Item href="/About" as="a" active>
                 About
             </Menu.Item>
-                <Menu.Item as="a">Portfolio</Menu.Item>
-                <Menu.Item as="a">Contact</Menu.Item>
+                <Menu.Item href="/Portfolio" as="a">Portfolio</Menu.Item>
+                <Menu.Item href="/Contact" as="a">Contact</Menu.Item>
                 <Menu.Item position="right">
                   <Button
                     as="a"
@@ -116,12 +116,12 @@ class MobileContainer extends Component {
             vertical
             visible={sidebarOpened}
           >
-            <Menu.Item as="a">Home</Menu.Item>
-            <Menu.Item as="a" active>
+            <Menu.Item href="/Home" as="a">Home</Menu.Item>
+            <Menu.Item href="/About" as="a" active>
                 About
             </Menu.Item>
-            <Menu.Item as="a">Portfolio</Menu.Item>
-            <Menu.Item as="a">Contact</Menu.Item>
+            <Menu.Item href="/Portfolio" as="a">Portfolio</Menu.Item>
+            <Menu.Item href="/Contact" as="a">Contact</Menu.Item>
           </Sidebar>
 
           <Sidebar.Pusher dimmed={sidebarOpened}>
@@ -181,9 +181,9 @@ const About = () => (
   
   <ResponsiveContainer>
 {/* Body */}
-    <Segment style={{ padding: '8em 0em' }} vertical>
+    <Segment style={{ padding: '6em 0em' }} vertical>
       <Grid container stackable verticalAlign='middle'>
-        <Grid.Row>
+        <Grid.Row textAlign="center" >
           <Grid.Column width={8}>
             <Header as='h3' style={{ fontSize: '2em' }}>
               Hey, I'm Wael!
@@ -192,17 +192,10 @@ const About = () => (
               Former media and insight anaylyst in the world consumer data now turned <b>Full Stack Web Developer</b>.
               If I'm not behind a laptop coding away building websites then 
               I'm outdoors with my trusty SLR snapping the world around me.
-             
             </p>
-            {/* <Header as='h3' style={{ fontSize: '2em' }}>
-              We Make Bananas That Can Dance
-            </Header>
-            <p style={{ fontSize: '1.33em' }}>
-              Yes that's right, you thought it was the stuff of dreams, but even bananas can be
-              bioengineered.
-            </p> */}
+          
           </Grid.Column>
-          <Grid.Column floated='right' width={6}>
+          <Grid.Column floated='right' width={7}>
             <Image bordered rounded size='big' src={ avatar } alt="jpg joe"/>
           </Grid.Column>
         </Grid.Row>
@@ -211,7 +204,7 @@ const About = () => (
 
     
 {/* Footer */}
-    <Segment inverted vertical style={{ padding: "5em 0em" }}>
+    <Segment inverted vertical style={{ padding: "5em 0em"}} className="footer">
       <Container>
         <Grid inverted stackable>
           <Grid.Row>
