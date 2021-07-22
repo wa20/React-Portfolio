@@ -16,6 +16,8 @@ import {
   Visibility,
 } from "semantic-ui-react";
 
+import "./style.css"
+
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
     mobile: 0,
@@ -68,14 +70,14 @@ class DesktopContainer extends Component {
     const { fixed } = this.state;
 
     return (
-      <Media greaterThan="mobile">
+      <Media greaterThan="mobile" className="heroBody">
         <Visibility
           once={false}
           onBottomPassed={this.showFixedMenu}
           onBottomPassedReverse={this.hideFixedMenu}
         >
           <Segment
-            inverted
+            // inverted
             textAlign="center"
             style={{ minHeight: 700, padding: "1em 0em" }}
             vertical
@@ -88,12 +90,12 @@ class DesktopContainer extends Component {
               size="large"
             >
               <Container>
-                <Menu.Item as="a" active>
+                <Menu.Item href="/Home" as="a" active>
                   Home
                 </Menu.Item>
-                <Menu.Item as="a">About</Menu.Item>
-                <Menu.Item as="a">Portfolio</Menu.Item>
-                <Menu.Item as="a">Contact</Menu.Item>
+                <Menu.Item href="/About" as="a">About</Menu.Item>
+                <Menu.Item href="/Portfolio" as="a">Portfolio</Menu.Item>
+                <Menu.Item href="/Contact" as="a">Contact</Menu.Item>
                 <Menu.Item position="right">
                   <Button
                     as="a"
@@ -144,12 +146,12 @@ class MobileContainer extends Component {
             visible={sidebarOpened}
             
           >
-            <Menu.Item as="a" active>
+            <Menu.Item href="/Home" as="a" active>
               Home
             </Menu.Item>
-            <Menu.Item as="a">About</Menu.Item>
-            <Menu.Item as="a">Portfolio</Menu.Item>
-            <Menu.Item as="a">Contact</Menu.Item>
+            <Menu.Item href="/About" as="a">About</Menu.Item>
+            <Menu.Item href="/Portfolio" as="a">Portfolio</Menu.Item>
+            <Menu.Item href="/Contact" as="a">Contact</Menu.Item>
           </Sidebar>
 
           <Sidebar.Pusher dimmed={sidebarOpened}>
@@ -207,7 +209,7 @@ const Home = () => (
 
   // Footer
   <ResponsiveContainer>
-    <Segment inverted vertical style={{ padding: "5em 0em" }}>
+    <Segment inverted vertical style={{ padding: "4em 0em" }}>
       <Container>
         <Grid inverted stackable>
           <Grid.Row>

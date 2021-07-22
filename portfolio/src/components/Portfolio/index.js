@@ -16,8 +16,8 @@ import {
   Visibility,
   Card,
 } from "semantic-ui-react";
-import "./style.css"
-
+import "./style.css";
+// import projects from "./Projects.js"
 
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
@@ -58,12 +58,12 @@ class DesktopContainer extends Component {
               size="large"
             >
               <Container>
-                <Menu.Item as="a">Home</Menu.Item>
-                <Menu.Item as="a">About</Menu.Item>
-                <Menu.Item as="a" active>
+                <Menu.Item href="/Home" as="a">Home</Menu.Item>
+                <Menu.Item href="/About" as="a">About</Menu.Item>
+                <Menu.Item href="/Portfolio" as="a" active>
                   Portfolio
                 </Menu.Item>
-                <Menu.Item as="a">Contact</Menu.Item>
+                <Menu.Item href="/Contact" as="a">Contact</Menu.Item>
                 <Menu.Item position="right">
                   <Button
                     as="a"
@@ -112,12 +112,12 @@ class MobileContainer extends Component {
             vertical
             visible={sidebarOpened}
           >
-            <Menu.Item as="a">Home</Menu.Item>
-            <Menu.Item as="a">About</Menu.Item>
-            <Menu.Item as="a" active>
+            <Menu.Item href="/Home" as="a">Home</Menu.Item>
+            <Menu.Item href="/About" as="a">About</Menu.Item>
+            <Menu.Item href="/Portfolio" as="a" active>
               Portfolio
             </Menu.Item>
-            <Menu.Item as="a">Contact</Menu.Item>
+            <Menu.Item href="/Contact" as="a">Contact</Menu.Item>
           </Sidebar>
 
           <Sidebar.Pusher dimmed={sidebarOpened}>
@@ -175,9 +175,9 @@ const Portfolio = (props) => (
     {/* Body */}
 
     <Segment style={{ padding: "0em" }} vertical>
-      <Grid celled="internally" columns="equal" stackable >
-        <Grid.Row textAlign="center" >
-          <Grid.Column style={{ paddingBottom: "5em", paddingTop: "5em" }} >
+      <Grid celled="internally" columns="equal" stackable>
+        <Grid.Row textAlign="center">
+          <Grid.Column style={{ paddingBottom: "5em", paddingTop: "5em" }}>
             {/* <Header as='h3' style={{ fontSize: '2em' }}>
               "What a Company"
             </Header>
@@ -198,7 +198,6 @@ const Portfolio = (props) => (
 
     <Segment style={{ padding: "8em 0em" }} vertical>
       <Container>
-
         <Card>
           <Image src="/images/avatar/large/matthew.png" wrapped ui={false} />
           <Card.Content>
@@ -210,16 +209,15 @@ const Portfolio = (props) => (
               Matthew is a musician living in Nashville.
             </Card.Description>
           </Card.Content>
-          <Card.Content extra>
-            <div className='ui two buttons'>
-          <Button basic color='green'>
-            Approve
-          </Button>
-          <Button basic color='red'>
-            Decline
-          </Button>
-        </div>
-          </Card.Content>
+
+          <Button.Group attached="bottom">
+            <Button color="black">
+              <Icon disabled name="github" /> View Repo
+            </Button>
+            <Button color="black">
+              <Icon disabled name="tv" /> View Project
+            </Button>
+          </Button.Group>
         </Card>
 
         <Divider
