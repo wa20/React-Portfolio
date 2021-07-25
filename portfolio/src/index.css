@@ -11,3 +11,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.flexRow{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  max-height: 300px;
+  overflow: auto;
+}
+
+
+.project{
+  position: relative;
+  max-width: 300px;
+  width: 100%;
+  margin:18px;
+
+
+}

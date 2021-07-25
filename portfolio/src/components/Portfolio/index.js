@@ -17,7 +17,20 @@ import {
   Card,
 } from "semantic-ui-react";
 import "./style.css";
-// import projects from "./Projects.js"
+import projects from "./projects.js";
+
+const js = require("./assets/logo/js.png").default;
+const css3 = require("./assets/logo/css3.png").default;
+const express = require("./assets/logo/express.png").default;
+const html5 = require("./assets/logo/html5.png").default;
+const jquery = require("./assets/logo/jquery.png").default;
+const mongodb = require("./assets/logo/mongodb.png").default;
+const mysql = require("./assets/logo/mysql.png").default;
+const node = require("./assets/logo/node.png").default;
+const react = require("./assets/logo/react.png").default;
+
+
+
 
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
@@ -58,18 +71,24 @@ class DesktopContainer extends Component {
               size="large"
             >
               <Container>
-                <Menu.Item href="/Home" as="a">Home</Menu.Item>
-                <Menu.Item href="/About" as="a">About</Menu.Item>
+                <Menu.Item href="/Home" as="a">
+                  Home
+                </Menu.Item>
+                <Menu.Item href="/About" as="a">
+                  About
+                </Menu.Item>
                 <Menu.Item href="/Portfolio" as="a" active>
                   Portfolio
                 </Menu.Item>
-                <Menu.Item href="/Contact" as="a">Contact</Menu.Item>
+                <Menu.Item href="/Contact" as="a">
+                  Contact
+                </Menu.Item>
                 <Menu.Item position="right">
                   <Button
                     as="a"
                     disabled
                     inverted={!fixed}
-                    primary={fixed}
+                    negative={fixed}
                     style={{ marginLeft: "0.5em" }}
                   >
                     Resume
@@ -112,12 +131,18 @@ class MobileContainer extends Component {
             vertical
             visible={sidebarOpened}
           >
-            <Menu.Item href="/Home" as="a">Home</Menu.Item>
-            <Menu.Item href="/About" as="a">About</Menu.Item>
+            <Menu.Item href="/Home" as="a">
+              Home
+            </Menu.Item>
+            <Menu.Item href="/About" as="a">
+              About
+            </Menu.Item>
             <Menu.Item href="/Portfolio" as="a" active>
               Portfolio
             </Menu.Item>
-            <Menu.Item href="/Contact" as="a">Contact</Menu.Item>
+            <Menu.Item href="/Contact" as="a">
+              Contact
+            </Menu.Item>
           </Sidebar>
 
           <Sidebar.Pusher dimmed={sidebarOpened}>
@@ -170,55 +195,25 @@ ResponsiveContainer.propTypes = {
   children: PropTypes.node,
 };
 
-const Portfolio = (props) => (
+const Portfolio = () => (
   <ResponsiveContainer>
     {/* Body */}
 
-    <Segment style={{ padding: "0em" }} vertical>
-      <Grid celled="internally" columns="equal" stackable>
+    <Segment style={{ padding: "0em" }} vertical >
+      <Grid celled="internally" columns="equal" stackable className="border">
         <Grid.Row textAlign="center">
-          <Grid.Column style={{ paddingBottom: "5em", paddingTop: "5em" }}>
-            {/* <Header as='h3' style={{ fontSize: '2em' }}>
-              "What a Company"
-            </Header>
-            <p style={{ fontSize: '1.33em' }}>That is what they all say about us</p> */}
-          </Grid.Column>
-          <Grid.Column style={{ paddingBottom: "5em", paddingTop: "5em" }}>
-            {/* <Header as='h3' style={{ fontSize: '2em' }}>
-              "I shouldn't have gone with their competitor."
-            </Header>
-            <p style={{ fontSize: '1.33em' }}>
-              <Image avatar src='/images/avatar/large/nan.jpg' />
-              <b>Nan</b> Chief Fun Officer Acme Toys
-            </p> */}
-          </Grid.Column>
+          <Grid.Column
+            style={{ paddingBottom: "2em", paddingTop: "2em" }}
+          ></Grid.Column>
         </Grid.Row>
       </Grid>
     </Segment>
 
     <Segment style={{ padding: "8em 0em" }} vertical>
-      <Container>
-        <Card>
-          <Image src="/images/avatar/large/matthew.png" wrapped ui={false} />
-          <Card.Content>
-            <Card.Header>Matthew</Card.Header>
-            <Card.Meta>
-              <span className="date">Joined in 2015</span>
-            </Card.Meta>
-            <Card.Description>
-              Matthew is a musician living in Nashville.
-            </Card.Description>
-          </Card.Content>
-
-          <Button.Group attached="bottom">
-            <Button color="black">
-              <Icon disabled name="github" /> View Repo
-            </Button>
-            <Button color="black">
-              <Icon disabled name="tv" /> View Project
-            </Button>
-          </Button.Group>
-        </Card>
+      <Container className="400px;">
+        <Header textAlign="center" as="h3" style={{ fontSize: "2em" }}>
+          Work
+        </Header>
 
         <Divider
           as="h4"
@@ -226,23 +221,85 @@ const Portfolio = (props) => (
           horizontal
           style={{ margin: "3em 0em", textTransform: "uppercase" }}
         >
-          <a href="#">example</a>
+          <Icon name="folder open" />
+          {/* Work  */}
         </Divider>
 
-        <Header as="h3" style={{ fontSize: "2em" }}>
-          Did We Tell You About Our Bananas?
+        <div className="flexRow ">
+          {projects.map((project) => (
+            <Grid.Row>
+              <div className="project">
+                <Card>
+                  <Image
+                    src={`${project.image}`}
+                    className="wrapper"
+                    wrapped
+                    ui={false}
+                  />
+                  <Card.Content>
+                    <Card.Header>{project.project}</Card.Header>
+                    {/* <Card.Meta>
+              <span className="date">Joined in 2015</span>
+            </Card.Meta> */}
+                    <Card.Description>{projects.detail}</Card.Description>
+                  </Card.Content>
+
+                  <Button.Group attached="bottom">
+                    <Button href={`${project.repo}`} color="black">
+                      <Icon disabled name="github" /> View Repo
+                    </Button>
+
+                    <Button href={`${project.deployment}`} color="black">
+                      <Icon disabled name="tv" /> View Project
+                    </Button>
+                  </Button.Group>
+                </Card>
+              </div>
+            </Grid.Row>
+          ))}
+        </div>
+
+        <Divider
+          as="h4"
+          className="header"
+          horizontal
+          style={{ margin: "3em 0em", textTransform: "uppercase" }}
+        >
+        </Divider>
+
+        <Header textAlign="center" as="h3" style={{ fontSize: "2em" }}>
+          Languages
         </Header>
-        <p style={{ fontSize: "1.33em" }}>
-          Yes I know you probably disregarded the earlier boasts as non-sequitur
-          filler content, but it's really true. It took years of gene splicing
-          and combinatory DNA research, but our bananas can really dance.
-        </p>
-        <Button as="a" size="large">
-          I'm Still Quite Interested
-        </Button>
+
+        <Grid celled="internally" columns="equal" stackable style={{ padding: "3em 0em" }}>
+          <Grid.Row textAlign="center" >
+           <Image.Group>
+             <Image size="tiny" wrapped src={ js } alt=""/>
+             <Image size="tiny" wrapped src={ css3 } alt="" />
+             <Image size="tiny" wrapped src={ html5} alt="" />
+             <Image size="tiny" wrapped src={jquery } alt="" />
+             <Image size="small" wrapped src={ node } alt="" />
+             <Image size="small" wrapped src={ express } alt="" />
+             <Image size="small" wrapped src={ mysql } alt="" />
+             <Image size="small" wrapped src={ mongodb } alt="" />
+             <Image size="small" wrapped src={ react } alt="" />
+
+             </Image.Group>
+          </Grid.Row>
+        </Grid>
       </Container>
     </Segment>
 
+    <Segment style={{ padding: "0em" }} vertical >
+      <Grid celled="internally" columns="equal" stackable className="border">
+        <Grid.Row textAlign="center">
+          <Grid.Column
+            style={{ paddingBottom: "2em", paddingTop: "2em" }}
+          ></Grid.Column>
+        </Grid.Row>
+      </Grid>
+    </Segment>
+    
     {/* Footer */}
     <Segment inverted vertical style={{ padding: "5em 0em" }}>
       <Container>
