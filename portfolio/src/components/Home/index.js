@@ -4,11 +4,11 @@ import React, { Component } from "react";
 import {
   Button,
   Container,
-  Divider,
+  // Divider,
   Grid,
   Header,
   Icon,
-  Image,
+  // Image,
   List,
   Menu,
   Segment,
@@ -40,7 +40,7 @@ const HomepageHeading = ({ mobile }) => (
         marginTop: mobile ? "1.5em" : "3em",
       }}
     />
-    <Button inverted color='red' 
+    <Button href="/About" inverted color='red' 
     size="huge"
     inverted
       style={{
@@ -222,7 +222,7 @@ const Home = () => (
               </List>
             </Grid.Column>
 
-            <Grid.Column width={7}>
+            <Grid.Column width={8}>
               <Header as="h4" inverted>
                 Coding Proverb 101
               </Header>
