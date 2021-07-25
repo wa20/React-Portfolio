@@ -7,7 +7,7 @@ import React, { Component } from "react";
 import {
   Button,
   Container,
-  Divider,
+  // Divider,
   Grid,
   Header,
   Icon,
